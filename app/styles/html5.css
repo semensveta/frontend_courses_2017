@@ -1,0 +1,13 @@
+
+aside {
+   background-color: #d3d3d3;
+   width: 300px;
+   float: right;
+   border-radius: 8px;
+   padding: 5px;
+   margin: 5px;
+}
+.go-top {
+   padding-left: 10px;
+}
+

@@ -1,0 +1,21 @@
+table {
+   margin: 0 auto;
+}
+td, tr {
+   padding: 0;
+   line-height: 0;
+}
+table button {
+   width: 100%;
+   padding: 0;
+   margin:0;
+}
+.result {
+   height: 40px;
+}
+.calc-form {
+   text-align: center;
+}
+
+
+   

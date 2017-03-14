@@ -5,6 +5,7 @@
       <meta charset="utf-8">
       <title>Калькулятор</title>
       <link rel="stylesheet" href="./styles/common.css">
+      <link rel="stylesheet" href="./styles/calc.css">
    </head>
 
    <body>
@@ -26,8 +27,8 @@
             </ul>
          </nav>
       </header>
-      <form name="calc">
-      <table border="1px">
+      <form name="calc" class="calc-form">
+      <table>
          <tr>
             <td colspan="5"><input type="text" name="input" /></td>
          </tr>
@@ -50,7 +51,7 @@
             <td><button type="button">2</button></td>
             <td><button type="button">3</button></td>
             <td><button type="button">-</button></td>
-            <td rowspan="2"><button type="button">=</button></td>
+            <td rowspan="2"><button class="result">=</button></td>
          </tr>
           <tr>
             <td colspan="2"><button type="button">0</button></td>
