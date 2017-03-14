@@ -13,7 +13,7 @@
          <h1>Основы Web-технологий</h1>
          <nav id="top">
             <ul>
-               <li><a href="./main.html">Главная</a></li>
+               <li><a href="./index.html">Главная</a></li>
                <li><a href="./webtech.html">Web-технологии</a>
                   <ul>
                      <li><a href="./html5.html">HTML5</a></li>
@@ -26,37 +26,39 @@
             </ul>
          </nav>
       </header>
+      <form name="calc">
       <table border="1px">
          <tr>
-            <td colspan="5"><input></td>
+            <td colspan="5"><input type="text" name="input" /></td>
          </tr>
          <tr>
-            <td><button>7</button></td>
-            <td><button>8</button></td>
-            <td><button>9</button></td>
-            <td><button>/</button></td>
-            <td><button>C</button></td>
+            <td><button type="button">7</button></td>
+            <td><button type="button">8</button></td>
+            <td><button type="button">9</button></td>
+            <td><button type="button">/</button></td>
+            <td><button type="reset">C</button></td>
          </tr>
          <tr>
-            <td><button>4</button></td>
-            <td><button>5</button></td>
-            <td><button>6</button></td>
-            <td><button>*</button></td>
-            <td><button>&plusmn;</button></td>
+            <td><button type="button">4</button></td>
+            <td><button type="button">5</button></td>
+            <td><button type="button">6</button></td>
+            <td><button type="button">*</button></td>
+            <td><button type="button">&plusmn;</button></td>
          </tr>           
           <tr>
-            <td><button>1</button></td>
-            <td><button>2</button></td>
-            <td><button>3</button></td>
-            <td><button>-</button></td>
-            <td rowspan="2"><button>=</button></td>
+            <td><button type="button">1</button></td>
+            <td><button type="button">2</button></td>
+            <td><button type="button">3</button></td>
+            <td><button type="button">-</button></td>
+            <td rowspan="2"><button type="button">=</button></td>
          </tr>
           <tr>
-            <td colspan="2"><button>0</button></td>
-            <td><button>.</button></td>
-            <td><button>+</button></td>
+            <td colspan="2"><button type="button">0</button></td>
+            <td><button type="button">.</button></td>
+            <td><button >+</button></td>
          </tr>         
       </table>
+      </form>
       <footer>
          <address>
            <a href="mailto:mail@mail">Пишите:mail@mail</a>
