@@ -1,0 +1,78 @@
+html {
+   background-color: #7e7e7e;
+}
+body {
+   width: 1000px;
+   margin: 0 auto;
+}
+header, article, footer, form, div, p {
+   background-color: #ffffff;
+   border-radius: 10px;
+   margin:0;
+   padding: 5px;
+   text-align: justify;
+}
+/*header styles*/
+header {
+   vertical-align: top;
+}
+h1, .logo {
+    display: inline-block;
+    vertical-align: top;
+   
+}
+h1 {
+   margin: 45px 20px;
+}
+nav ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   text-align: center;
+}
+nav > ul > li {
+   display:inline-block;
+   position: relative;
+   padding-bottom: 5px;
+   
+}
+nav li > ul {
+   border: 1px solid black;
+   border-radius: 5px;
+   background: white;
+   position: absolute;
+   top: 20px;
+   left: 0;
+   text-align: left;
+   padding: 5px;
+   display: none;
+}
+nav li:hover ul {
+   display: block;
+}
+   
+/*footer styles*/
+footer {
+   text-align: center;
+   line-height: 25px;
+}
+
+/*html5 page styles*/
+aside {
+   background-color: #d3d3d3;
+   width: 300px;
+   float: right;
+   border-radius: 8px;
+   padding: 5px;
+   margin: 5px;
+}
+.go-top {
+   padding-left: 10px;
+}
+/*calc page styles*/
+table {
+   margin: o auto;
+}
+
+
+   
