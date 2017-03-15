@@ -57,38 +57,7 @@ footer {
    line-height: 25px;
 }
 
-/*html5 page styles*/
-aside {
-   background-color: #d3d3d3;
-   width: 300px;
-   float: right;
-   border-radius: 8px;
-   padding: 5px;
-   margin: 5px;
-}
-.go-top {
-   padding-left: 10px;
-}
 
-/*calc styles*/
-table {
-   margin: 0 auto;
-}
-td, tr {
-   padding: 0;
-   line-height: 0;
-}
-table button {
-   width: 100%;
-   padding: 0;
-   margin:0;
-}
-.result {
-   height: 40px;
-}
-.calc-form {
-   text-align: center;
-}
 
 
    
