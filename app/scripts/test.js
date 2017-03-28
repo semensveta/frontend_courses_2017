@@ -12,17 +12,17 @@ testForm.elements.result.onclick = function testHandler() {
    var inputArray = Object.keys(correctAnswers);
    var userAnswers = getAnswers(inputArray, testForm);   
    var grade = countScore(userAnswers);   
-   console.log("You answerd correct on " + grade*20 + "% quistions!" + "Your score is " + grade + " of 5 points");
+   alert("You answerd correctly on " + grade*20 + "% quistions! " + "Your grade is " + grade + " of 5 points");
 }
 
 function getAnswers(arr, form) {
    var userAnswers = {};
    for (var i = 0; i < arr.length; i++){
-      var input = arr[i];
-      if (typeof correctAnswers[input] === 'string') {
-         userAnswers[input] = form.elements[input].value;
+      var inputName = arr[i];
+      if (typeof correctAnswers[inputName] === 'string') {
+         userAnswers[inputName] = form.elements[inputName].value;
       }  else {
-         userAnswers[input] = getCheckboxAnswer(form.elements[input]);
+         userAnswers[inputName] = getCheckboxAnswer(form.elements[inputName]);
       }
    }
 
@@ -47,7 +47,7 @@ function countScore(userAnswers) {
          if (correctAnswers[key] == userAnswers[key]) {
             grade += 1;
          }
-      } else if (correctAnswer[key].length == userAnswer[key].length) {
+      } else if (correctAnswers[key].length == userAnswers[key].length) {
          if (correctCheckboxAnswer(correctAnswers[key], userAnswers[key])) {
             grade += 1;
          }
