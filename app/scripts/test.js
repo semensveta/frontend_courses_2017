@@ -1,7 +1,7 @@
 var correctAnswers = {
    link: "a",
    list: "ol",
-   info: "meta",
+   info: "meta_slash",
    table: ["td", "caption"],
    form: ["autocomplete", "action"]
 }
