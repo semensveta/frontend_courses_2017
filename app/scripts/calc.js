@@ -1,82 +1,63 @@
 
 var calcForm = document.forms.calc;
-
+var firstOperand = "";
+var secondOperand = "";
+var operator = "";
+var result;
 calcForm.addEventListener("click", clickHandleFunction);
 
 function clickHandleFunction() {
      var target = event.target;
-     var firstOperand = "";
-   
-     if (isNaN(target.value)) {
-        var operator = target.value;
-      } else {
+     if (isNaN(target.value) && target.value != "result" && target.value != ".") {
+           operator = target.value;
+           calcForm.elements.input.value = "";
+        
+      } else if (operator === "reset") {
+         calcForm.elements.input.value = ""; 
+         reset();
+         
+      } else if (operator === "") {
           firstOperand += target.value;
-      } 
-   console.log(firstOperand);   
+          calcForm.elements.input.value = firstOperand;
+         
+      } else if (target.value == "result") {
+         calcForm.elements.input.value = "";
+         countResult(firstOperand, secondOperand);
+         
+      } else {
+         secondOperand += target.value;
+         calcForm.elements.input.value = secondOperand;
+         
+      }
+   
 }
    
-
-
-/*var testForm = document.forms.test;
-testForm.elements.result.onclick = function testHandler() {
+function countResult(a, b) {
+   switch (operator) {
+      case "multiplication": result = a * b;
+         break;
+      case "division": result = a / b;
+         break;
+      case "plus": result = (+a) +(+b);
+         break;
+      case "minus": result = a - b;
+         break;
+      case "sign_change": result = -a;
+         break;      
+   } 
+   calcForm.elements.input.value = result;
+   reset();
    
-   var inputArray = Object.keys(correctAnswers);
-   var userAnswers = getAnswers(inputArray, testForm);   
-   var grade = countScore(userAnswers);   
-   alert("You answerd correctly on " + grade*20 + "% quistions! " + "Your grade is " + grade + " of 5 points");
-}
-
-function getAnswers(arr, form) {
-   var userAnswers = {};
-   for (var i = 0; i < arr.length; i++){
-      var inputName = arr[i];
-      if (typeof correctAnswers[inputName] === 'string') {
-         userAnswers[inputName] = form.elements[inputName].value;
-      }  else {
-         userAnswers[inputName] = getCheckboxAnswer(form.elements[inputName]);
-      }
-   }
-
-   return userAnswers;
-} 
-
-function getCheckboxAnswer(checkboxInput) {
-    var answers = [];
-    for (var i = 0; i < checkboxInput.length; i++){
-        if (checkboxInput[i].checked) {
-            answers.push(checkboxInput[i].value);
-        }
-    }
-
-    return answers;
-}
-   
-function countScore(userAnswers) {
-   var grade = 0;
-   for (var key in correctAnswers) {
-      if (typeof correctAnswers[key] === 'string') {
-         if (correctAnswers[key] == userAnswers[key]) {
-            grade += 1;
-         }
-      } else if (correctAnswers[key].length == userAnswers[key].length) {
-         if (correctCheckboxAnswer(correctAnswers[key], userAnswers[key])) {
-            grade += 1;
-         }
-      }
-   }
-
-   return grade;
-}
-
-function correctCheckboxAnswer(correctAnswer, userAnswer) {
-   var result = true;   
-   for (var i = 0; i < correctAnswer.length; i++) {
-      if (correctAnswer[i] != userAnswer[i]) {
-         result = false;
-      }
-   }
-
    return result;
-}*/
+}
+
+function reset() {
+   firstOperand = "";
+   secondOperand = "";
+   operator = "";
+}
+    
+   
+   
 
 
