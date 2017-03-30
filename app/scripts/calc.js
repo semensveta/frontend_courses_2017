@@ -3,50 +3,75 @@ var calcForm = document.forms.calc;
 var firstOperand = "";
 var secondOperand = "";
 var operator = "";
-var result;
+var result = "";
+var input = calcForm.input;
+
+/*input.onkeyup = onKeyUp;*/
 calcForm.addEventListener("click", clickHandleFunction);
 
-function clickHandleFunction() {
-     var target = event.target;
-     if (isNaN(target.value) && target.value != "result" && target.value != ".") {
-           operator = target.value;
-           calcForm.elements.input.value = "";
-        
-      } else if (operator === "reset") {
-         calcForm.elements.input.value = ""; 
-         reset();
-         
-      } else if (operator === "") {
+function clickHandleFunction(event) {
+   var actions = {
+      'operator': setOperator,
+      'operand': setOperand,
+      'result': countResult,
+      'reset': reset,
+      'sign_change': changeSign
+   };
+   var target = event.target;
+   var buttonType = target.dataset.btnType;
+  
+   if (event.target.className.indexOf("button") >= 0) {
+   actions[buttonType](target.value);
+   }
+
+
+function setOperand() {
+      if (operator === "") {
           firstOperand += target.value;
           calcForm.elements.input.value = firstOperand;
-         
-      } else if (target.value == "result") {
-         calcForm.elements.input.value = "";
-         countResult(firstOperand, secondOperand);
+          return firstOperand;
          
       } else {
          secondOperand += target.value;
          calcForm.elements.input.value = secondOperand;
-         
+         return secondOperand;
       }
-   
 }
-   
-function countResult(a, b) {
+      
+function setOperator() {
+    operator = target.value;
+    return operator;
+}
+
+function changeSign() {
+   operator = target.value;
+   result = countResult();
+}
+         
+function countResult() {
+   var result;
    switch (operator) {
-      case "multiplication": result = a * b;
+      case "multiplication": result = firstOperand * secondOperand;
          break;
-      case "division": result = a / b;
+      case "division": if (secondOperand != 0) {
+         result = firstOperand / secondOperand;
+      } else { 
+         result = "error!";
+      }
          break;
-      case "plus": result = (+a) +(+b);
+      case "plus": result = (+firstOperand) +(+secondOperand);
          break;
-      case "minus": result = a - b;
+      case "minus": result = firstOperand - secondOperand;
          break;
-      case "sign_change": result = -a;
+      case "sign_change": result = -firstOperand;
          break;      
    } 
+   
    calcForm.elements.input.value = result;
-   reset();
+   firstOperand = result;
+   secondOperand = "";
+   operator = "";
+   
    
    return result;
 }
@@ -55,9 +80,16 @@ function reset() {
    firstOperand = "";
    secondOperand = "";
    operator = "";
+   calcForm.elements.input.value = "";
+   result = "";
 }
-    
+}
+/*function onKeyUp() {
    
-   
+	if(event.keyCode != 13 || keyCode < 106 || keyCode > 111) {
+      return;
+   } else if (event.keyCode = 13) {
+         countResult()
+   } else setOperator();
 
-
+}*/
