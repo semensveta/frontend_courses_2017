@@ -6,7 +6,7 @@ var operator = "";
 var result = "";
 var input = calcForm.input;
 
-/*input.onkeyup = onKeyUp;*/
+
 calcForm.addEventListener("click", clickHandleFunction);
 
 function clickHandleFunction(event) {
@@ -66,8 +66,10 @@ function countResult() {
       case "sign_change": result = -firstOperand;
          break;      
    } 
-   
+   if (result != undefined) {
    calcForm.elements.input.value = result;
+   }
+   
    firstOperand = result;
    secondOperand = "";
    operator = "";
@@ -84,12 +86,4 @@ function reset() {
    result = "";
 }
 }
-/*function onKeyUp() {
-   
-	if(event.keyCode != 13 || keyCode < 106 || keyCode > 111) {
-      return;
-   } else if (event.keyCode = 13) {
-         countResult()
-   } else setOperator();
 
-}*/
